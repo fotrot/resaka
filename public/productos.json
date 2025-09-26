@@ -1,0 +1,98 @@
+[
+    {
+        "nombre": "Fernet Branca",
+        "categoria": "fernet",
+        "precio": 9500.0,
+        "imagen": "/assets/fernet-branca.jpg"
+    },
+    {
+        "nombre": "Gin Malaria",
+        "categoria": "gin",
+        "precio": 28000.0,
+        "imagen": "/assets/gin-malaria.jpg"
+    },
+    {
+        "nombre": "Buhero Negro",
+        "categoria": "fernet",
+        "precio": 6400.0,
+        "imagen": "/assets/buhero-negro.jpg"
+    },
+    {
+        "nombre": "Restinga London",
+        "categoria": "gin",
+        "precio": 16700.0,
+        "imagen": "/assets/restinga-london.jpg"
+    },
+    {
+        "nombre": "Chandon Extra Brut",
+        "categoria": "espumantes",
+        "precio": 12400.0,
+        "imagen": "/assets/chandon-extra.jpg"
+    },
+    {
+        "nombre": "Sernova Clasico",
+        "categoria": "vodka",
+        "precio": 6400.0,
+        "imagen": "/assets/sernova.jpeg"
+    },
+    {
+        "nombre": "Skyy 750cc",
+        "categoria": "vodka",
+        "precio": 7200.0,
+        "imagen": "/assets/skyy.jpg"
+    },
+    {
+        "nombre": "Smirnoff 750cc",
+        "categoria": "vodka",
+        "precio": 7200.0,
+        "imagen": "/assets/smirnoff.jpg"
+    },
+    {
+        "nombre": "Smirnoff Sandia 750cc",
+        "categoria": "vodka",
+        "precio": 7700.0,
+        "imagen": "/assets/smirnoff_sandia.jpg"
+    },
+    {
+        "nombre": "Corona 710cc",
+        "categoria": "cervezas",
+        "precio": 3200.0,
+        "imagen": "/assets/corona750.jpg"
+    },
+    {
+        "nombre": "Red Label",
+        "categoria": "whisky",
+        "precio": 29700.0,
+        "imagen": "/assets/red-label.jpg"
+    },
+    {
+        "nombre": "Black Label",
+        "categoria": "whisky",
+        "precio": 48700.0,
+        "imagen": "/assets/black-label.jpg"
+    },
+    {
+        "nombre": "Aperol",
+        "categoria": "aperitivos",
+        "precio": 7100.0,
+        "imagen": "/assets/aperol.jpg"
+    },
+    {
+        "nombre": "Trapiche Malbec",
+        "categoria": "vinos",
+        "precio": 6900.0,
+        "imagen": "/assets/trapiche-malbec.png"
+    },
+    {
+        "nombre": "Campari 750cc",
+        "categoria": "aperitivos",
+        "precio": 8200.0,
+        "imagen": "/assets/campari.jpg"
+    },
+    {
+        "nombre": "Gin Bombay 750cc",
+        "categoria": "gin",
+        "precio": 31200.0,
+        "imagen": "/assets/gin-bombay.jpg"
+    }
+]

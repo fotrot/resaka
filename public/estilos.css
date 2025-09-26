@@ -1,0 +1,274 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #121212; /* Color de fondo oscuro */
+    color: #000000; /* Color de texto claro */
+    background-image: 
+        linear-gradient(45deg, #2c2c2c 25%, transparent 25%, transparent 75%, #2c2c2c 75%, transparent),
+        linear-gradient(45deg, transparent 25%, #2c2c2c 25%, #2c2c2c 75%, transparent 75%, transparent);
+    background-size: 20px 20px; /* Tamaño del cuadro */
+    background-position: 0 0, 10px 10px; /* Posición de los patrones */
+}
+
+
+.container {
+    max-width: 700px; /* Anchura máxima para pantallas grandes */
+    margin: auto;
+    background: white;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+/* Agrega esto a tu archivo CSS */
+.cart-icon {
+    cursor: pointer;
+    font-size: 1.5em;
+    text-align: right;
+    margin-bottom: 20px;
+    color: #333;
+    transition: transform 0.8s ease; /* Transición para suavizar el movimiento */
+}
+
+.cart-icon.animate {
+    transform: scale(1.1); /* Aumenta el tamaño del carrito */
+    color: green; /* Cambia a verde durante la animación */
+}
+
+
+.cart-icon i {
+    margin-right: 5px;
+}
+
+#cartMenu {
+    position: relative;
+    width: 96%;
+    margin-top: 20px;
+    background-color: #fff;
+    border: 1px solid #a3a3a3;
+    border-radius: 8px;
+    padding: 10px;
+    z-index: 10;
+}
+
+#items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Ajusta la cantidad de columnas según el espacio disponible */
+    gap: 10px; /* Espacio entre los productos */
+    justify-items: center;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #a3a3a3;
+    border-radius: 8px;
+    margin: 10px;
+    padding: 15px;
+    background-color: #fff;
+    width: 100%; /* Asegúrate de que ocupe el 100% del contenedor */
+    max-width: 250px;
+    position: relative;
+}
+
+.item img {
+    width: 100%; 
+    height: 150px; 
+    object-fit: contain; 
+    border-radius: 5px;
+}
+
+.item span {
+    font-weight: bold;
+    font-size: 1.1em;
+    margin: 5px 0;
+}
+
+.quantity-button {
+    background-color: #171717;
+    color: white;
+    border: none;
+    padding: 8px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.quantity-button:hover {
+    background-color: #7f7f7f;
+}
+
+.quantity-menu {
+    display: none;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.total {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-top: 20px;
+    text-align: right;
+}
+
+#cartSummary {
+    margin-top: 10px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+}
+
+#checkoutForm {
+    margin-top: 20px;
+    display: none;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input {
+    width: 90%;
+    padding: 8px;
+    border: 1px solid #a3a3a3;
+    border-radius: 4px;
+    margin-bottom: 4px;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #171717;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #7f7f7f;
+}
+
+#searchBar {
+    width: 97%;
+    padding: 10px;
+    margin: 20px 0;
+    border: 1px solid #a3a3a3;
+    border-radius: 4px;
+}
+
+/* Animaciones */
+.thank-you-message {
+    animation: fadeIn 0.5s, fadeOut 0.5s 2.5s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px; /* Menos padding en pantallas pequeñas */
+    }
+
+    .item {
+        width: 90%; /* Menor ancho para elementos en pantallas pequeñas */
+    }
+}
+
+.categories {
+    margin-top: 20px;
+    background: white;
+    padding: 10px;
+    width: 96%; /* Ocupa casi todo el ancho disponible */
+    display: flex; /* Flexbox para alineación horizontal */
+    overflow-x: auto; /* Permite desplazamiento horizontal */
+    white-space: nowrap; /* Evita que los elementos se envuelvan */
+}
+
+.category-item {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-right: 10px; /* Espacio entre elementos de categoría */
+    flex-shrink: 0; /* Evita que los elementos se encojan */
+}
+
+.category-item:hover {
+    background-color: #7f7f7f;
+    color: white;
+}
+
+
+
+.modal {
+    display: flex; /* Usar flex para centrar el modal */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0); /* Fondo negro */
+    background-color: rgba(0,0,0,0.4); /* Fondo negro con opacidad */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Ancho del modal */
+    max-width: 300px; /* Ancho máximo */
+    text-align: center; /* Centramos el texto */
+}
+
+.close {
+    color: #aaa;
+    float: right; /* Posicionamos la "x" a la derecha */
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5vh;
+  }
+  
+  #animatedText {
+    font-size: 2em;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid;
+    animation: blink 0.5s step-end infinite alternate;
+  }
+  
+  @keyframes blink {
+    50% { border-color: transparent; }
+  }

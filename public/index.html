@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Resaka MDP</title>
+</head>
+<body>
+    <div class="container">
+        <br>
+        <div class="cart-icon" onclick="toggleCart()">
+            <i class="fas fa-shopping-cart"></i> <span id="cartItemCount">0</span>
+        </div>
+        
+        <div class="center">
+            <h1 id="animatedText">Resaka MDP</h1>
+          </div>
+          
+        
+        <input type="text" id="searchBar" placeholder="Buscar un producto..." onkeyup="filterProducts()" />
+
+
+        
+
+        <div class="categories">
+            <div class="category-item" onclick="filterProductsByCategory('todos')">Todos</div>
+            <div class="category-item" onclick="filterProductsByCategory('cervezas')">Cervezas</div>
+            <div class="category-item" onclick="filterProductsByCategory('fernet')">Fernet</div>
+            <div class="category-item" onclick="filterProductsByCategory('gin')">Gin</div>
+            <div class="category-item" onclick="filterProductsByCategory('vodka')">Vodka</div>
+            <div class="category-item" onclick="filterProductsByCategory('aperitivos')">Aperitivos</div>
+            <div class="category-item" onclick="filterProductsByCategory('whisky')">Whisky</div>
+            <div class="category-item" onclick="filterProductsByCategory('espumantes')">Espumantes</div>
+            <div class="category-item" onclick="filterProductsByCategory('vinos')">Vinos</div>
+        </div>
+        <br>
+        <br>
+
+        <div id="items">
+            <!-- Los productos se cargarán aquí dinámicamente desde productos.json -->
+        </div>
+
+        <div id="cartMenu" class="cart-menu" style="display: none;">
+            <h2>Resumen del Carrito</h2>
+            <div id="cartSummary"></div>
+            <div class="total">Total: $<span id="total">0</span></div>
+            <button id="checkoutButton" onclick="showCheckoutForm(); scrollToCheckout();">Confirmar Compra</button>
+        </div>
+        
+
+        <div id="checkoutForm">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" required>
+            <label for="phone">Teléfono:</label>
+            <input type="text" id="phone" required>
+            <label for="address">Dirección:</label>
+            <input type="text" id="address" required>
+            <button onclick="confirmPurchase()">Confirmar</button>
+        </div>        
+    </div>
+
+
+    <!-- Modal para mostrar mensaje de producto añadido -->
+<div id="modal" class="modal" style="display:none;">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <p id="modalMessage">Producto añadido al carrito</p>
+    </div>
+</div>
+
+<br>
+
+<footer style="text-align: center; padding: 5px; background-color: #121212; color: #e0e0e0; position: relative; bottom: 0; left: 50%; transform: translateX(-50%); width: 50%;">
+    <p>&copy; 2024 Resaka MDP.</p>
+</footer>
+
+
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    
+    <script>
+        // Función para cargar productos desde productos.json
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('productos.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Error al cargar los productos');
+                    }
+                    return response.json();
+                })
+                .then(productos => {
+                    const container = document.getElementById('items');
+                    productos.forEach(producto => {
+                        const itemDiv = document.createElement('div');
+                        itemDiv.classList.add('item');
+                        itemDiv.setAttribute('data-category', producto.categoria); // Asigna la categoría
+                        itemDiv.innerHTML = `
+                            <img src="${producto.imagen}" alt="${producto.nombre}">
+                            <span>${producto.nombre} - $${producto.precio}</span>
+                            <br>
+                            <button class="quantity-button" onclick="toggleQuantityMenu('${producto.nombre}QtyMenu')">Añadir</button>
+                            <div class="quantity-menu" id="${producto.nombre}QtyMenu">
+                                <input type="number" min="1" value="1" id="${producto.nombre}Qty" />
+                                <button onclick="addToCart('${producto.nombre}', ${producto.precio}, document.getElementById('${producto.nombre}Qty').value)">Agregar al carrito</button>
+                            </div>
+                        `;
+                        container.appendChild(itemDiv);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error al cargar productos:', error);
+                });
+        });
+    </script>
+</body>
+</html>
